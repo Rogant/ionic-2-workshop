@@ -1,6 +1,23 @@
-<ion-navbar *navbar>
-  <ion-title>Projects</ion-title>
-</ion-navbar>
+<ion-toolbar>
+  <ion-buttons start>
+    <button>
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-segment>
+    <ion-segment-button value="new">
+      New
+    </ion-segment-button>
+    <ion-segment-button value="hot">
+      Hot
+    </ion-segment-button>
+  </ion-segment>
+  <ion-buttons end>
+    <button>
+      <ion-icon name="more"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content class="page1">
   <ion-list>
