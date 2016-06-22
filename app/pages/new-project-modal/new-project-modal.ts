@@ -24,8 +24,6 @@ export class newProjectModal implements OnInit {
   }
 
   addProduct(name: string, owner: string) {
-    console.log(this.projects);
-
     if (!name) { return; }
     this._ProjectService.addProject(name, owner)
       .subscribe(

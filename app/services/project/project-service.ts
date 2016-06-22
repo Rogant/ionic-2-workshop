@@ -11,6 +11,12 @@ export class ProjectService {
 
   private ProjectApi = 'http://192.168.60.124:9000/api/projects';  // URL to web API
 
+  getProjects(): Observable<Project[]> {
+    return this._Http.get(this.ProjectApi)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   addProject(name: string, owner: string): Observable<Project> {
     let body = JSON.stringify({ name: name, owner: owner });
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -22,7 +28,7 @@ export class ProjectService {
   }
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || {};
+    return body || {};
   }
   private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure

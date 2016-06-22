@@ -21,14 +21,8 @@
 
 <ion-content class="page1">
   <ion-list>
-    <ion-item>
-      Capture a Pokemon
-    </ion-item>
-    <ion-item>
-      Buy a new Xbox one
-    </ion-item>
-    <ion-item>
-      Make a romantic dinner
+    <ion-item *ngFor="let project of projects">
+      {{project.name}}
     </ion-item>
   </ion-list>
 </ion-content>
