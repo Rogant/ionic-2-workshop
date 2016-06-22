@@ -1,4 +1,20 @@
-<ion-content padding>
-  <h2>I'm a modal!</h2>
-  <button (click)="close()">Close</button>
+<ion-toolbar>
+  <ion-title>Create Project</ion-title>
+</ion-toolbar>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Your Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Project Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button block (click)="close()">Create</button>
+  </div>
 </ion-content>
