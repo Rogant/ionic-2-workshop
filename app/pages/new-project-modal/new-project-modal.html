@@ -5,16 +5,16 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Your Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" #productName></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Project Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" #productOwner></ion-input>
     </ion-item>
   </ion-list>
 
   <div padding>
-    <button block (click)="close()">Create</button>
+    <button block (click)="addProduct(productName.value, productOwner.value)">Create</button>
   </div>
 </ion-content>
