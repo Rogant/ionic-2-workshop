@@ -64,4 +64,21 @@ export class HomePage implements OnInit {
       projects => this.getProjects(),
       error => this.errorMessage = <any>error);
   }
+
+  orderByDate() {
+    this.projects = this.projects.sort((a, b) => {
+      let date1 = new Date(a.createdAt);
+      let date2 = new Date(b.createdAt);
+
+      if (date1 > date2) return -1;
+      if (date1 < date2) return 1;
+      return 0;
+    });
+  }
+
+  orderByFavorite() {
+    this.projects = this.projects.sort((a, b) => {
+      return (a.favorite === b.favorite) ? 0 : a.favorite ? -1 : 1;
+    });
+  }
 }

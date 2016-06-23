@@ -5,10 +5,10 @@
     </button>
   </ion-buttons>
   <ion-segment>
-    <ion-segment-button value="new">
+    <ion-segment-button value="new" (click)="orderByDate()">
       New
     </ion-segment-button>
-    <ion-segment-button value="hot">
+    <ion-segment-button value="hot" (click)="orderByFavorite()">
       Hot
     </ion-segment-button>
   </ion-segment>
