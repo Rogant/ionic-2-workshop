@@ -40,7 +40,9 @@ export class HomePage implements OnInit {
         {
           text: 'Favorite',
           handler: () => {
-            console.log('Favorite clicked');
+            let project = this.projects[i]
+            let favorite = project.favorite ? false : true;
+            this.favProject(project._id, favorite)
           }
         },
         {
@@ -54,5 +56,12 @@ export class HomePage implements OnInit {
     });
 
     this._navController.present(actionSheet);
+  }
+
+  favProject(id, favorite) {
+    this._ProjectService.favProject(id, favorite)
+      .subscribe(
+      projects => this.getProjects(),
+      error => this.errorMessage = <any>error);
   }
 }

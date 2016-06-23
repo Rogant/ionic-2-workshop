@@ -24,7 +24,7 @@
     <ion-item *ngFor="let project of projects; let i = index" (click)="presentActionSheet(i)">
       <h2>{{project.name}}</h2>
       <p>By {{project.owner}}</p>
-      <ion-icon name="flame" isActive="project.favorite" item-right></ion-icon>
+      <ion-icon name="flame" [ngClass]="{active: project.favorite}" item-right></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>

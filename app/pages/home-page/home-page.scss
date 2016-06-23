@@ -1,3 +1,7 @@
 .page1 {
-
+	ion-icon[name="flame"] {
+		&.active{
+			color: #ff5600;
+		}
+	}
 }
