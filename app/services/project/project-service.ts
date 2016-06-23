@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 export class ProjectService {
   constructor(private _Http: Http) {}
 
-  private ProjectApi = 'http://192.168.60.124:9000/api/projects';  // URL to web API
+  private ProjectApi = 'http://192.168.1.13:9000/api/projects';  // URL to web API
 
   getProjects(): Observable<Project[]> {
     return this._Http.get(this.ProjectApi)

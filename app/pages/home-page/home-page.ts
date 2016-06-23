@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController, Modal} from 'ionic-angular';
+import {NavController, Modal, ActionSheet} from 'ionic-angular';
 import {newProjectModal} from '../new-project-modal/new-project-modal';
 
 import {Project} from '../../services/project/project';
@@ -11,15 +11,15 @@ import {ProjectService} from '../../services/project/project-service';
   providers: [ProjectService]
 })
 export class HomePage implements OnInit {
-    projects: Project[];
-    errorMessage: string;
-    mode = 'Observable';
+  projects: Project[];
+  errorMessage: string;
+  mode = 'Observable';
 
-    constructor(private _navController: NavController, private _ProjectService: ProjectService) { }
+  constructor(private _navController: NavController, private _ProjectService: ProjectService) { }
 
-    ngOnInit() {
-      this.getProjects();
-    }
+  ngOnInit() {
+    this.getProjects();
+  }
 
   getProjects() {
     this._ProjectService.getProjects()
@@ -31,5 +31,28 @@ export class HomePage implements OnInit {
   showModal() {
     let modal = Modal.create(newProjectModal);
     this._navController.present(modal);
+  }
+
+  presentActionSheet(i) {
+    let actionSheet = ActionSheet.create({
+      title: 'Modify project',
+      buttons: [
+        {
+          text: 'Favorite',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    this._navController.present(actionSheet);
   }
 }

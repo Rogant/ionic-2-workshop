@@ -21,7 +21,7 @@
 
 <ion-content class="page1">
   <ion-list>
-    <ion-item *ngFor="let project of projects">
+    <ion-item *ngFor="let project of projects; let i = index" (click)="presentActionSheet(i)">
       {{project.name}}
     </ion-item>
   </ion-list>
